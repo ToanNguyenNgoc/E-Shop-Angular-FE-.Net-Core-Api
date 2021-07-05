@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CartCommonService } from 'src/app/Services/cart-common.service';
 import { ShopServerService } from 'src/app/Services/shop-server.service';
 import { AddCartSuccessComponent } from '../gio-hang/add-cart-success/add-cart-success.component';
@@ -14,11 +14,12 @@ export class ChiTietComponent implements OnInit {
   id: number= this.route.snapshot.params['id'];
   data:any;
   public page=1;
-  public pageSize=5;
+  public pageSize=3;
   cartList:any=[];
   constructor(
     public service: ShopServerService,
     public route: ActivatedRoute,
+    public _route: Router,
     public cartCommon: CartCommonService,
     public dialog: MatDialog
   ) { }
@@ -34,10 +35,39 @@ export class ChiTietComponent implements OnInit {
       console.log(this.data);
     });
   }
+  //handler buy now
+  buyNow(category: any){
+    let cartDataNull= localStorage.getItem('localCart');
+    if(cartDataNull==null){
+      let storeDataGet: any=[];
+      storeDataGet.push(category);
+      localStorage.setItem('localCart', JSON.stringify(storeDataGet));
+    }else{
+      var idItem= category.id;
+      let index: number= -1;
+      let cartData: string =`${localStorage.getItem('localCart')}`;
+      this.itemsCart= JSON.parse(cartData);
+      for(let i=0; i< this.itemsCart.lenght; i++){
+        if(parseInt(idItem)===parseInt(this.itemsCart[i].id)){
+          this.itemsCart[i].quantity= category.quantity;
+          index=i;
+          break;
+        }
+      }
+      if(index==-1){
+        this.itemsCart.push(category);
+        localStorage.setItem('localCart', JSON.stringify(this.itemsCart));
+      }else{
+        localStorage.setItem('localCart', JSON.stringify(this.itemsCart));
+      }
+    }
+    this._route.navigateByUrl('client/gio-hang');
+    this.cartNumberFunc();
+    this.loadCartBox();
+  }
   //handler add to cart
   itemsCart: any=[];
   addToCart(category: any){
-    // console.log(category);
     let cartDataNull= localStorage.getItem('localCart');
     if(cartDataNull==null){
       let storeDataGet: any=[];

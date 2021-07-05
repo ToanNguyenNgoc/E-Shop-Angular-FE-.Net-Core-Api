@@ -236,7 +236,7 @@
                                     <button (click)="addToCart(data)" class="btn__details-control btn-addCart">
                                         <i class="fas fa-cart-plus addCart-icon"></i>Thêm Vào Giỏ Hàng
                                     </button>
-                                    <button class="btn__details-control btn-buy">
+                                    <button (click)="buyNow(data)" class="btn__details-control btn-buy">
                                         Mua Ngay
                                     </button>
                                     <button class="btn__details-control btn-buy" onclick="closeClassify()">
@@ -266,11 +266,9 @@
                             <button (click)="addToCart(data)" class="btn__details-control btn-addCart">
                                 <i class="fas fa-cart-plus addCart-icon"></i>Thêm Vào Giỏ Hàng
                             </button>
-                            <a [routerLink]="['/client/trang-chu/gio-hang']" routerLinkActive="router-link-active">
-                                <button (click)="addToCart(data)" class="btn__details-control btn-buy">
-                                    Mua Ngay
-                                </button>
-                            </a> 
+                            <button (click)="buyNow(data)" class="btn__details-control btn-buy">
+                                Mua Ngay
+                            </button>
                         </div>
                     </div>
                 </div>
