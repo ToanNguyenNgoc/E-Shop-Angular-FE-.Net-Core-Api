@@ -61,7 +61,7 @@
                         <div class="grid__row">
                             <!-- product item -->                          
                                 <div class="grid__column-2-4" *ngFor="let data of service.list_product | slice: (page-1) * pageSize : page * pageSize">
-                                    <a [routerLink]="['chi-tiet-san-pham/' + data.id]" RouterLinkActive="router-link-active" style="text-decoration: none; color: black;">
+                                    <a [routerLink]="['/client/chi-tiet-san-pham/' + data.id]" RouterLinkActive="router-link-active" style="text-decoration: none; color: black;">
                                         <div class="home__product-item">
                                             <img class="home__product-item__img" *ngIf="data?.image" src="{{data?.image}}" alt="">
                                             <h4 class="home__product-item__name">{{data.productName}}</h4>
@@ -125,7 +125,5 @@
             <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="service.list_product.length"></ngb-pagination>
         </div>
     </div>
-    <app-footer></app-footer>
 </div>
 
-<router-outlet></router-outlet>

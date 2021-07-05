@@ -29,10 +29,10 @@ const routes: Routes = [
   
   //Client
   {path:'client', component: ClientsComponent, children:[
-    {path:'trang-chu', component: TrangChuComponent},
-    {path:'trang-chu/chi-tiet-san-pham/:id', component: ChiTietComponent},
-    {path:'trang-chu/gio-hang', component: GioHangComponent}
+    
   ]},
+  {path:'client/chi-tiet-san-pham/:id', component:ChiTietComponent},
+  {path:'client/gio-hang', component: GioHangComponent},
   {path:'dang-nhap', component: DangNhapComponent},
   {path:'dang-ky', component: DangKyComponent},
   {path:'test', component:TestSidenavComponent},

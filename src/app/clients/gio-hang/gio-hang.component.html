@@ -1,3 +1,4 @@
+<app-header></app-header>
 <div class="cart-body">
     <div class="cart-body__heading">
         <div class="grid">
@@ -6,7 +7,7 @@
     </div>
     <div class="grid">
         <div *ngIf="cartList.length==0" class="cart-body__notifi">
-            <span class="cart-body__notifi-text">Chưa có sản phẩm nào! <a [routerLink]="['/client/trang-chu']" routerLinkActive="router-link-active" class="cart-body__notifi-text__link" href="index.html">Shopping now</a></span>
+            <span class="cart-body__notifi-text">Chưa có sản phẩm nào! <a [routerLink]="['/client']" routerLinkActive="router-link-active" class="cart-body__notifi-text__link" href="index.html">Shopping now</a></span>
         </div>
     </div>
     <div class="grid">

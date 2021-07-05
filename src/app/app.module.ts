@@ -38,6 +38,7 @@ import { DangKyComponent } from './clients/dang-ky/dang-ky.component';
 import { AddCartSuccessComponent } from './clients/gio-hang/add-cart-success/add-cart-success.component';
 import { NotFoundComponent } from './Shared/not-found/not-found.component';
 import { FooterComponent } from './clients/footer/footer.component';
+import { HeaderComponent } from './clients/header/header.component';
 
 
 
@@ -61,6 +62,7 @@ import { FooterComponent } from './clients/footer/footer.component';
     AddCartSuccessComponent,
     NotFoundComponent,
     FooterComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

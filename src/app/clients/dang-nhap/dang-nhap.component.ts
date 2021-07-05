@@ -30,7 +30,7 @@ export class DangNhapComponent implements OnInit {
     this.service.user_login(form.value).subscribe((data: any)=>{
       localStorage.setItem('token', data.token);
       this.toastr.success('Login Success !');
-      this.route.navigateByUrl('/client/trang-chu')
+      this.route.navigateByUrl('/client')
     },
     err =>{
       if(err.status==400){
