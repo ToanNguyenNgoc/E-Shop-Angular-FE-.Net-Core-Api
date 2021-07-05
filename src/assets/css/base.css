@@ -1,0 +1,218 @@
+:root{
+    --white-color: white;
+    --black-color: black;
+    --text-color: rgb(85, 85, 85);
+    --text-color-2:#757575;
+    /* --primary-color: rgb(248, 96, 41); */
+    --primary-color:rgb(255, 40, 75);
+    --border-color: #dbdbdb;
+    --color-hover:rgb(219, 219, 219);
+    --color-hover-primary:rgb(255, 139, 139);
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+}
+html{
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+.grid{
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding-top: 10px;
+}
+.grid__full-width{
+    width: 100%;
+}
+.grid__row{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-left: -5px;
+    margin-right: -5px;
+    padding-top: 24px;
+}
+/* Chia column chuan bootstrap */
+.grid__column-2{
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 16.66667%;
+}
+.grid__column-4{
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 33.3333%;
+}
+.grid__column-2-4{
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 20%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.grid__column-10{
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 83.3333%;
+    
+}
+.grid__column-8{
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 66.66667%;
+}
+/* button style */
+.btn{
+    min-width: 100px;
+    height: 36px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    text-decoration:none;
+    background-color: var(--white-color);
+    font-size: 1.4rem;
+    font-weight: 900;
+}
+.btn:hover{
+    /* background-color:var(--color-hover); */
+}
+.btn.btn--primary{
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    font-size: 1.6rem;
+}
+.btn.btn--primary:hover{
+    background-color: var(--color-hover-primary);
+}
+/* Animation */
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+/* Modal Css */
+.modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    animation: fadeIn ease-in 1s;
+}
+.modal__overplay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.modal__body{
+    background-color: white;
+    margin: auto;
+    position: relative;
+    border-radius: 5px;
+    animation: modalAnimation ease-in 0.5s;
+}
+@keyframes modalAnimation{
+    from{
+        transform: scale(0);
+    }
+    to{
+        transform: 1;
+    }
+}
+/* Tablet */
+@media only screen and (min-width: 740px) and (max-width: 789px){
+    .grid__column-2-4 {
+        padding-left: 5px;
+        padding-right: 5px;
+        width: 30%;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+}
+@media only screen and (min-width: 790px) and (max-width: 1023px){
+    .grid__column-2-4 {
+        padding-left: 5px;
+        padding-right: 5px;
+        width: 25%;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+}
+/* Mobile */
+@media only screen and (max-width: 739px){
+    html{
+        font-size: 62.5%;
+        line-height: 1.6rem;
+        font-family: 'Roboto', sans-serif;
+        box-sizing: border-box;
+        width: 100%;
+    }
+    .grid__row{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        flex-direction: row !important;
+        margin-left: -5px;
+        margin-right: -5px;
+        padding-top: 0px;
+    }
+    .grid__column-2{
+        position: absolute;
+        display: block;
+        z-index: 3;
+        width: 100%;
+        padding: 0px 0px;
+        top:0;
+        margin-right: -250%;
+        position: fixed;
+        transition: all 0.9s;
+        box-shadow: 0px 30px 50px 0px #000000;
+    }
+    .grid__column-10{
+        padding-left: 5px;
+        padding-right: 5px;
+        width: 95%;
+        height: 100px;
+    }
+    .btn{
+        min-width: 50px;
+        height: 36px; 
+        border: none;
+        outline: none;
+        text-decoration:none;
+        background-color: var(--white-color);
+        font-size: 1.4rem;
+        font-weight: 900;
+    }
+    .btn:hover{
+        background-color:var(--white-color);
+        border-bottom: 2px solid var(--primary-color);
+    }
+    .btn.btn--primary{
+        background-color: var(--white-color);
+        color: var(--black-color);
+    }
+    .btn.btn--primary:hover{
+        background-color: var(--white-color);
+    }
+    /* Home product */
+    .grid__column-2-4 {
+        padding-left: 5px;
+        padding-right: 5px;
+        width: 50%;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    /* End:Home product */
+}

@@ -1,0 +1,29 @@
+<mat-tab-group mat-align-tabs="center">
+    <mat-tab label="Đăng nhập">
+        <form class="headr__form--sign--up" method="POST" #form="ngForm" autocomplete="off" (submit)="onLogin(form)">
+            <input class="form--sign--up--input" type="text" name="UserName" #UserName="ngModel" [(ngModel)]="login_formModel.UserName" placeholder="Tên tài khoản" required>
+            <input class="form--sign--up--input" type="text" name="Password" #Password="ngModel" [(ngModel)]="login_formModel.Password" placeholder="Mật khẩu" required>
+            <button class="btn btn--primary" type="submit">Đăng nhập</button>
+        </form>
+    </mat-tab>
+    <mat-tab label="Đăng ký">
+        <form  method="POST" class="headr__form--sign--up" id="register-form" [formGroup]="service.user_formModel"
+            autocomplete="off" (submit)="onSubmit()">
+            <input type="text" class="form--sign--up--input" formControlName="UserName" placeholder="Tên tài khoản" required />
+            <input type="text" class="form--sign--up--input" placeholder="Mật khẩu" formControlName="Password" required />
+            <div *ngIf="service.user_formModel.get('Password')?.touched && service.user_formModel.get('Password')?.invalid">
+                <div class="form--sign--up--error" *ngIf="service.user_formModel.get('Password')?.errors?.required">Password is required</div>
+            </div>
+            <input type="text" class="form--sign--up--input" placeholder="Nhập lại mật khẩu" formControlName="Confirm_Password" required />
+            <div
+                *ngIf="service.user_formModel.get('Confirm_Password')?.touched && service.user_formModel.get('Confirm_Password')?.invalid">
+                <div class="form--sign--up--error" *ngIf="service.user_formModel.get('Confirm_Password')?.errors?.confirmedValidator">Confirm
+                    password is not match</div>
+            </div>
+            <input type="text" class="form--sign--up--input" placeholder="Họ và tên" formControlName="FullName" required />
+            <input type="text" class="form--sign--up--input" placeholder="Địa chỉ Email" formControlName="Email" required />
+            <button type="submit" class="btn btn--primary" [disabled]="!service.user_formModel.valid">Register</button>
+        </form>
+    </mat-tab>
+</mat-tab-group>
+  

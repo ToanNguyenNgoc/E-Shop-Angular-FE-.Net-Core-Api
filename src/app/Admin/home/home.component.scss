@@ -1,0 +1,44 @@
+.admin__header{
+    height: 50px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+.admin__grid{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.admin__header--control{
+    padding-left: 0px;
+    margin-bottom: 0px;
+    margin-top: 4px;
+    display: flex;
+    flex-direction: row;
+    
+}
+.admin__header--control__list{
+    list-style: none;
+}
+.admin__header--control__link{
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-weight: 500;
+    padding-right: 20px;
+    color: var(--white-color);
+}
+.admin__header--control__link:hover{
+    color: var(--color-hover);
+    text-decoration: underline;
+}
+.user__control-box{
+    background-color: var(--white-color);
+    border: 2px solid black;
+}
+.user__control-box__box{
+    padding: 10px 10px;
+}
+.user__control-box__list{
+    list-style: none;
+}

@@ -1,0 +1,34 @@
+<div class="header admin__header">
+    <div class="grid admin__grid">
+        <ul class="admin__header--control">
+            <li class="admin__header--control__list">
+                <a [routerLink]="['/admin']" RouterLinkActive="router-link-active" href="" class="admin__header--control__link">Home</a>
+            </li>
+            <li class="admin__header--control__list">
+                <a [routerLink]="['/admin/registration']" RouterLinkActive="router-link-active" class="admin__header--control__link">Người dùng</a>
+            </li>
+            <li class="admin__header--control__list">
+                <a [routerLink]="['/admin/products']" RouterLinkActive="router-link-active" class="admin__header--control__link">Sản phẩm</a>
+            </li>
+        </ul>
+        <ul class="header__nav-item header__nav-name">
+            <div class="header__user-profile">
+                <i class="header__nav--icon fas fa-user-circle"></i>
+                <span *ngIf="user_profiles">{{user_profiles.userName}}</span>
+                <div class="header__profile-box">
+                    <ul class="header__profile-list">
+                        <li class="header__profile-item">
+                            <a href="#" class="header__profile-link">Tài khoản</a>
+                        </li>
+                        <li class="header__profile-item">
+                            <a (click)="logout()" class="header__profile-link">Đăng xuất</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </ul>
+    </div>
+</div>
+<div class="grid">
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,17 @@
+.headr__form--sign--up{
+    display: flex;
+    flex-direction: column;
+}
+.form--sign--up--input{
+    margin: 6px 0px;
+    font-size: 1.6rem;
+    padding: 8px 8px;
+    background-color: whitesmoke;
+    color: var(--text-color);
+    border: none;
+    outline: none;
+    border-radius: 4px;
+}
+.form--sign--up--error{
+    color: red;
+}

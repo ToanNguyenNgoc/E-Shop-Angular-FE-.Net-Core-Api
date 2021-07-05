@@ -1,0 +1,38 @@
+
+<div class="app">
+    <div class="sign-in__body">
+        <div class="gid grid-body">
+            <div class="sign-form">
+                <h1 class="sign-form__heading">
+                    Tạo mới người dùng
+                </h1>
+                <form action="" class="form-body" method="POST" [formGroup]="service.user_formModel" (submit)="onSubmit()">
+                    <input type="text" class="form-body__input" placeholder="Số điện thoại/Tên đăng nhập" 
+                        formControlName="UserName"
+                        required />
+
+                    <input type="password" class="form-body__input" placeholder="Mật khẩu" 
+                        formControlName="Password"
+                        required />
+                    <div *ngIf="service.user_formModel.get('Password')?.touched && service.user_formModel.get('Password')?.invalid">
+                        <div *ngIf="service.user_formModel.get('Password')?.errors?.required">Password is required</div>
+                    </div>
+
+                    <input type="password" class="form-body__input" placeholder="Nhập lại mật khẩu" formControlName="Confirm_Password"
+                        required />
+                    <div *ngIf="service.user_formModel.get('Confirm_Password')?.touched && service.user_formModel.get('Confirm_Password')?.invalid">
+                        <div *ngIf="service.user_formModel.get('Confirm_Password')?.errors?.confirmedValidator">Confirm
+                            password is not match
+                        </div>
+                    </div>
+
+                    <input type="text" class="form-body__input" placeholder="Email" 
+                        formControlName="Email"
+                        required />
+                    <input type="text" class="form-body__input" placeholder="Họ và tên" required />
+                    <button type="submit" class="btn btn--primary btn-mobile">Đăng ký</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

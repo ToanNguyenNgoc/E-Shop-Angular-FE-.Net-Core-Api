@@ -1,0 +1,67 @@
+.admin__container{
+  margin-top: 60px;
+}
+.btn--admin{
+  font-size: 18px;
+  font-weight: 600;
+}
+.image__product{
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+}
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.detail-link{
+  text-decoration: none;
+  color: var(--text-color);
+}
+.detail-link:hover{
+  text-decoration: underline;
+  color: var(--text-color-2);
+}
+.filterable {
+  margin-top: 15px;
+}
+.filterable .panel-heading .pull-right {
+  margin-top: -20px;
+}
+.filterable .filters input[disabled] {
+  background-color: transparent;
+  border: none;
+  cursor: auto;
+  box-shadow: none;
+  padding: 0;
+  height: auto;
+}
+.filterable .filters input[disabled]::-webkit-input-placeholder {
+  color: #333;
+}
+.filterable .filters input[disabled]::-moz-placeholder {
+  color: #333;
+}
+.filterable .filters input[disabled]:-ms-input-placeholder {
+  color: #333;
+}
+.table__btn{
+  width: 90px;
+  border: none;
+  background-color: green;
+  color: white;
+  padding: 8px 0px;
+  margin-right: 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+.btn__delete{
+  background-color: rgb(255, 87, 87);
+}
+.table__btn:hover{
+  background-color: rgb(93, 170, 93);
+}
+.btn__delete:hover{
+  background-color: rgb(255, 136, 136);
+}

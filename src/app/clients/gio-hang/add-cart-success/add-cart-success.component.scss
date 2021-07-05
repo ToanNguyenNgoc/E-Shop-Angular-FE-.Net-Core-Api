@@ -1,0 +1,14 @@
+.success-box p{
+    font-size: 1.6rem;
+    color: var(--text-color);
+}
+.success-box button{
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%;
+    font-size: 4rem;
+    color: var(--primary-color);
+    outline: none;
+    border: none;
+    background-color: transparent;
+}

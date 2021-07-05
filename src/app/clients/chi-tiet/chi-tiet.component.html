@@ -1,0 +1,345 @@
+
+<div class="app" id="product-app">
+    <div class="product__container">
+        <div class="grid">
+            <div class="grid__row" style="background-color: white; padding-bottom: 24px;">
+                <div class="grid__column-4">
+                    <div class="product__image">
+                        <img *ngIf="data?.image" src="{{data?.image}}" alt="" class="product__image-avatar">
+                        <div class="product__image-more">
+                            <img *ngIf="data?.image" src="{{data?.image}}" alt="" class="product__image-more-single">
+                            <img *ngIf="data?.image" src="{{data?.image}}" alt="" class="product__image-more-single">
+                            <img *ngIf="data?.image" src="{{data?.image}}" alt="" class="product__image-more-single">
+                            <img *ngIf="data?.image" src="{{data?.image}}" alt="" class="product__image-more-single">
+                            <img *ngIf="data?.image" src="{{data?.image}}" alt="" class="product__image-more-single">
+                        </div>
+                        <div class="product__image-action">
+                            <div class="product__image-action-share">
+                                <span class="share-title">Chia sẻ:</span>
+                                <ul class="share__items">
+                                    <li class="share__list">
+                                        <a href="" class="share__link" style="color: #0384FF;"><i class="fab fa-facebook-messenger"></i></a>
+                                        <a href="" class="share__link" style="color: #3B5999;"><i class="fab fa-facebook"></i></a>
+                                        <a href="" class="share__link" style="color: #DD5044;"><i class="fab fa-google-plus"></i></a>
+                                        <a href="" class="share__link" style="color: #DE0217;"><i class="fab fa-pinterest"></i></a>
+                                        <a href="" class="share__link" style="color: #10C2FF;"><i class="fab fa-twitter"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="product__image-action-like">
+                                <a href="" style="font-size: 16px; color: palevioletred;"><i class="fas fa-heart"></i></a>
+                                <span class="share-title">Đã thích(1k)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid__column-8">
+                    <div class="product__details">
+                        <span class="product__details-name">
+                            {{data?.productName}}
+                        </span>
+                        <div class="product__details-feedback">
+                            <div class="product__details-feedback__stars">
+                                <span class="product__details-feedback-amount amount-stars">4.9</span>
+                                <ul class="feedback__stars">
+                                    <li class="feedback__stars-list"><i class="fas fa-star"></i></li>
+                                    <li class="feedback__stars-list"><i class="fas fa-star"></i></li>
+                                    <li class="feedback__stars-list"><i class="fas fa-star"></i></li>
+                                    <li class="feedback__stars-list"><i class="fas fa-star"></i></li>
+                                    <li class="feedback__stars-list"><i class="fas fa-star"></i></li>
+                                </ul>
+                            </div>
+                            <div class="product__details-feedback__evaluate">
+                                <span class="product__details-feedback-amount">1.9 K</span>
+                                <span class="product__details-feedback-name">Đánh giá</span>
+                            </div>
+                            <div class="product__details-feedback__sold">
+                                <span class="product__details-feedback-amount">2.9 K</span>
+                                <span class="product__details-feedback-name">Đã bán</span>
+                            </div>
+                        </div>
+                        <div class="product__details-sale">
+                            <span class="product__details-sale__flash">
+                                FLASH SALE
+                            </span>
+                            <div class="product__details-sale__time">
+                                <span class="product__details-sale__time-title">
+                                    <i class="far fa-clock" style="font-size: 17px;"></i>
+                                    KẾT THÚC TRONG
+                                </span>
+                                <div class="product__details-sale__time-play">
+                                    <div class="time-play"><span class="time-play__number">01</span></div>
+                                    <div class="time-play"><span class="time-play__number">05</span></div>
+                                    <div class="time-play"><span class="time-play__number">43</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product__details-price">
+                            <span class="product__details-price__before">
+                                {{data?.price|currency:"VND":"symbol"}}
+                            </span>
+                            <span class="product__details-price__after">
+                                {{data?.discount|currency:"VND":"symbol"}}
+                            </span>
+                            <div class="product__details-price__ratio">
+                                <span class="product__details-price__ratio-text">
+                                    % Giảm
+                                </span>
+                            </div>
+                        </div>
+                        <div class="product__details-code">
+                            <div class="product__details-title">
+                                <span class="details-title__text">Mã giảm giá của shop</span>
+                            </div>
+                            <div class="product__details-code__vouchers">
+                                <div class="product__details-code__vouchers-item">
+                                    <span class="product__details-code__vouchers-text">
+                                        Giảm 1K
+                                    </span>
+                                </div>
+                                <div class="product__details-code__vouchers-item">
+                                    <span class="product__details-code__vouchers-text">
+                                        Giảm 1K
+                                    </span>
+                                </div>
+                                <div class="product__details-code__vouchers-item">
+                                    <span class="product__details-code__vouchers-text">
+                                        Giảm 1K
+                                    </span>
+                                </div>
+                                <div class="product__details-code__vouchers-item-mobile" onclick="openVouchers()">
+                                    <i class="fas fa-chevron-down" style="font-size: 16px; line-height: 22px;"></i>
+                                </div>
+                                
+                            </div>
+                            <div id="Box-vouchers" class="product__details-vouchers">
+                                <span class="product__details-vouchers__header">
+                                    Mã giảm giá của Shop
+                                </span>
+                                <span class="product__details-vouchers__header-desc">
+                                    Tiết kiệm hơn khi áp dụng mã giảm giá của Shop. Liên hệ với Shop khi gặp trục trặc về mã giảm giá do Shop tự tạo
+                                </span>
+                                <ul class="product__details-vouchers__container">
+                                    <li class="product__details-vouchers__container-list">
+                                        <div class="voucher">
+                                            <div class="voucher__logo">
+
+                                            </div>
+                                            <div class="voucher__detail">
+                                                <span class="voucher__detail-desc">
+                                                    Giảm 1K đơn tối thiểu 69K
+                                                </span>
+                                                <span class="voucher__detail-date">
+                                                    HSD: 05.07.2021
+                                                </span>
+                                            </div>
+                                            <button class="btn-voucher">
+                                                Lưu
+                                            </button>
+                                        </div>
+                                    </li>
+                                    <li class="product__details-vouchers__container-list">
+                                        <div class="voucher">
+                                            <div class="voucher__logo">
+
+                                            </div>
+                                            <div class="voucher__detail">
+                                                <span class="voucher__detail-desc">
+                                                    Giảm 1K đơn tối thiểu 69K
+                                                </span>
+                                                <span class="voucher__detail-date">
+                                                    HSD: 05.07.2021
+                                                </span>
+                                            </div>
+                                            <button class="btn-voucher">
+                                                Lưu
+                                            </button>
+                                        </div>
+                                    </li>
+                                    <li class="product__details-vouchers__container-list">
+                                        <div class="voucher">
+                                            <div class="voucher__logo">
+
+                                            </div>
+                                            <div class="voucher__detail">
+                                                <span class="voucher__detail-desc">
+                                                    Giảm 1K đơn tối thiểu 69K
+                                                </span>
+                                                <span class="voucher__detail-date">
+                                                    HSD: 05.07.2021
+                                                </span>
+                                            </div>
+                                            <button class="btn-voucher">
+                                                Lưu
+                                            </button>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="product__voucher-close" onclick="closeVouchers()">
+                                    <span>Đóng</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product__details-ship">
+                            <div class="product__details-title">
+                                <span class="details-title__text">Vận chuyển</span>
+                            </div>
+                            <div class="ship-icon">
+                                <i class="fas fa-truck" style="color: #00BFA5; margin-bottom: 30px;"></i>
+                                <i class="fas fa-truck"></i>
+                            </div>
+                            <div class="product__details-ship__details">
+                                <div class="product__details-ship__details-free">
+                                    <span class="free__title">
+                                        Miễn Phí Vận Chuyển
+                                    </span>
+                                    <span class="free__text">
+                                        Miễn Phí Vận Chuyển Khi Đơn Đạt Giá Trị Tối Thiểu
+                                    </span>
+                                </div>
+                                <div class="product__details-ship__details-address">
+                                    <div class="address__title">
+                                        <span class="address__title-text">
+                                            Vận Chuyển Tới
+                                        </span>
+                                        <span class="address__title-text">
+                                            Phí Vận Chuyển
+                                        </span>
+                                    </div>
+                                    <div class="address__details">
+                                        <span class="address__details-desc">
+                                            Quận Thủ Đức, Hồ Chí Minh
+                                        </span>
+                                        <span class="address__details-desc">
+                                           15.000đ - 30.000đ
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product__details-classify">
+                            <div class="product__details-title">
+                                <span class="details-title__text">Chọn Loại</span>
+                            </div>
+                            <div class="product__details-classify__desc" id="product-classify">
+                                <div class="product__details-classify__desc-items">
+                                    <button class="btn-classify">ĐEN BẠC</button>
+                                    <button class="btn-classify">TRẮNG BẠC</button>
+                                    <button class="btn-classify">ĐEN BẠC + TẤM LÓT</button>
+                                    <button class="btn-classify">TRẮNG BẠC + TẤM LÓT</button>
+                                    <button class="btn-classify">BLACK STAR</button>
+                                    <button class="btn-classify">BLACK STAR + TẤM LÓT</button>
+                                    <button class="btn-classify">MÀU XÁM</button>
+                                    <button class="btn-classify">MÀU XÁM</button>
+                                </div>
+                                <div class="product__control">
+                                    <button (click)="addToCart(data)" class="btn__details-control btn-addCart">
+                                        <i class="fas fa-cart-plus addCart-icon"></i>Thêm Vào Giỏ Hàng
+                                    </button>
+                                    <button class="btn__details-control btn-buy">
+                                        Mua Ngay
+                                    </button>
+                                    <button class="btn__details-control btn-buy" onclick="closeClassify()">
+                                        Đóng
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mobile__product-classify" onclick="openClassify()">
+                            <span>Chọn loại hàng (ví dụ: màu sắc, kích thước,...)</span>
+                            <i class="fas fa-chevron-right" style="color: #757575; font-size: 18px; line-height: 40px;"></i>
+                        </div>
+                        <div class="product__details-quantity">
+                            <div class="product__details-title">
+                                <span class="details-title__text" style="line-height: 32px;">Số Lượng</span>
+                            </div>
+                            <div class="product__details-quantity__desc">
+                                <button (click)="decr(data)" class="btn-classify btn-calc">-</button>
+                                <input type="text" class="quantity-text" placeholder="{{data?.quantity}}">
+                                <button (click)="incr(data)" class="btn-classify btn-calc">+</button>
+                                <span class="details-title__text" style="padding-left: 10px;">
+                                    Số lượng mua: {{data?.quantity}}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="product__details-control">
+                            <button (click)="addToCart(data)" class="btn__details-control btn-addCart">
+                                <i class="fas fa-cart-plus addCart-icon"></i>Thêm Vào Giỏ Hàng
+                            </button>
+                            <a [routerLink]="['/client/trang-chu/gio-hang']" routerLinkActive="router-link-active">
+                                <button (click)="addToCart(data)" class="btn__details-control btn-buy">
+                                    Mua Ngay
+                                </button>
+                            </a> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal using Mobile -->
+    
+    <!-- mobile -->
+    <div class="product__footer">
+        <div class="product__footer-control">
+            <i class="fas fa-cart-plus" style="color: white; font-size: 16px; margin-bottom: 0px;"></i>
+            <span class="product__footer-text">Thêm Vào Giỏ Hàng</span>
+        </div>
+        <div class="product__footer-control buy-now" onclick="openClassify()">
+            <span class="product__footer-text text-buy">Mua Ngay</span>
+        </div>
+    </div>
+    <div class="product__body">
+        <div class="grid">
+            <div class="grid__row">
+                <div class="grid__column-10">
+                    <div class="product__body-left">
+                        <div class="product__body-header">
+                            <div class="product__body-header__text">
+                                CHI TIẾT SẢN PHẨM
+                            </div>
+                            <div class="product__body-discount">
+                                <span class="product__body-discount__title">
+                                    Kho hàng
+                                </span>
+                                <span class="product__body-discount__number">
+                                    {{data?.quantity}}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="product__body-body">
+                            <div class="product__body-header__text">
+                                MÔ TẢ SẢN PHẨM
+                            </div>
+                            <div class="product__body-description">
+                                {{data?.description}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid__column-2">
+                    <h3 class="product__recommend-title">
+                        TOP SẢN PHẨM BÁN CHẠY
+                    </h3>
+                    <ul class="product__recommend" style="padding-left: 0rem;"
+                        *ngFor="let data of service.list_product | slice: (page-1) * pageSize : page * pageSize"
+                    >
+                        <li class="product__recommend-list">
+                            <a [routerLink]="['/home/chi-tiet-san-pham/' + data.id]" class="product__recommend-link">
+                                <img class="product__recommend-link__image"
+                                    *ngIf="data?.image" src="{{data?.image}}"
+                                alt="">
+                                <div class="product__recommed-details">
+                                    <h3 class="product__recommed-details__name">{{data?.productName}}</h3>
+                                    <span class="product__recommed-details__discount">{{data?.discount|currency:"VND":"symbol"}}</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</div>
+<router-outlet></router-outlet>

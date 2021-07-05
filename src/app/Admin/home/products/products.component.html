@@ -1,0 +1,53 @@
+<div class="grid">
+  <div class="admin__container">
+    <button class="btn btn--primary btn--admin" (click)="openProductForm()">
+      <i class="fas fa-plus" style="padding-right: 5px;"></i>
+      Tạo mới sản phẩm</button>
+    <div class="container">
+      <div class="row">
+        <div class="panel panel-primary filterable">
+          <table class="table">
+            <thead>
+              <tr class="filters">
+                <th scope="col">ID</th>
+                <th scope="col">Code</th>
+                <th scope="col">Image</th>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Discount Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Control</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let data of service.list_product | slice: (page-1) * pageSize : page * pageSize">
+              <tr style="font-size: 14px; color: rgb(80, 80, 80); font-weight: 600;">
+                <td scope="row">{{data.id}}</td>
+                <td>{{data.code}}</td>
+                <td>
+                  <a class="detail-link" [routerLink]="['/admin/products/detail']"
+                    RouterLinkActive="router-link-active">
+                    <img *ngIf="data?.image" src="{{data?.image}}" alt="" class="image__product">
+                  </a>
+                </td>
+                <td>
+                  <a class="detail-link" [routerLink]="['/admin/products/detail']"
+                    RouterLinkActive="router-link-active">{{data.productName}}</a>
+                </td>
+                <td style="text-decoration: line-through;">{{data.price|currency:"VND":"symbol"}}</td>
+                <td>{{data.discount|currency:"VND":"symbol"}}</td>
+                <td>{{data.quantity}}</td>
+                <td><button class="table__btn" (click)="update_form_product(data)"><i class="far fa-edit" style="padding-right: 3px;"></i>Edit</button>
+                  <button class="table__btn btn__delete" (click)="delete(data.id)"><i class="far fa-trash-alt" style="padding-right: 3px;"></i>Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+      <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="service.list_product.length">
+      </ngb-pagination>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>  

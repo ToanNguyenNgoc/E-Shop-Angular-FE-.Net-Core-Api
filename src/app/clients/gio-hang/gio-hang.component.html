@@ -1,0 +1,59 @@
+<div class="cart-body">
+    <div class="cart-body__heading">
+        <div class="grid">
+            <span class="cart-body__heading-text">Giỏ hàng</span>
+        </div>
+    </div>
+    <div class="grid">
+        <div *ngIf="cartList.length==0" class="cart-body__notifi">
+            <span class="cart-body__notifi-text">Chưa có sản phẩm nào! <a [routerLink]="['/client/trang-chu']" routerLinkActive="router-link-active" class="cart-body__notifi-text__link" href="index.html">Shopping now</a></span>
+        </div>
+    </div>
+    <div class="grid">
+        <div class="cart-body__table">
+            <div class="cart-body__table-heading">
+                <span class="cart-body__table-heading__text table-st-hd">STT</span>
+                <span class="cart-body__table-heading__text table-pr-hd">Sản phẩm</span>
+                <span class="cart-body__table-heading__text">Đơn giá</span>
+                <span class="cart-body__table-heading__text">Số lượng</span>
+                <span class="cart-body__table-heading__text">Tổng tiền</span>
+                <span class="cart-body__table-heading__text">Thao tác</span>
+            </div>
+            <div class="cart-body__table-body">
+                <div *ngFor="let item of cartList" class="cart-body__table-body__list">
+                    <span class="cart-body__table-body__item table-st-bd">{{item.code}}</span>
+                    <span class="cart-body__table-body__item table-pr-bd">
+                        <img *ngIf="item?.image" class="cart-item-img" src="{{item.image}}"
+                            alt="">
+                        <span class="cart-item-name">{{item.productName}}</span>
+                    </span>
+                    <div class="res-mobile">
+                        <span class="cart-body__table-body__item mobie-item">{{item.discount|currency:"VND":"symbol"}}</span>
+                        <span class="cart-body__table-body__item cart-control-qnt mobie-item">
+                            <button (click)="incr(item.id, item.quantity)" class="btn-qnt">+</button>
+                            <div class="cart-item-qnt"><span style="margin-left: 8px; line-height: 32px;">{{item.quantity}}</span></div>
+                            <button (click)="decr(item.id, item.quantity)" class="btn-qnt">-</button>
+                        </span>
+                        <span class="cart-body__table-body__item mobie-item" style="color: var(--primary-color);">{{item.discount * item.quantity |currency:"VND":"symbol"}}</span>
+                        <span (click)="deleteItem(item.id)" class="cart-body__table-body__item btn-delete-item mobie-item">Xóa</span>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+    <app-footer></app-footer>
+    <div class="cart-body__bottom">
+        <div class="cart-body__bottom-totalcount">
+            <span>Tổng thanh toán ({{tottalProduct}} sản phẩm)</span>
+        </div>
+        <div class="cart-body__bottom-text">
+            <span>Tổng số tiền:</span>
+        </div>
+        <div class="cart-body__bottom-totalprice">
+            <span>{{totalPrice|currency:"VND":"symbol"}} </span>
+        </div>
+        <div class="cart-body__bottom-payment">
+            <button class="btn btn--primary btn--mobile">Thanh tóan</button>
+        </div>
+    </div>
+</div>

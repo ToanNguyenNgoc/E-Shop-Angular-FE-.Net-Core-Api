@@ -1,0 +1,18 @@
+
+<div class="app">
+    <div class="sign-in__body">
+        <div class="gid grid-body">
+            <div class="sign-form">
+                <h1 class="sign-form__heading">
+                    Đăng nhập
+                </h1>
+                <form method="POST" #form="ngForm" (submit)="onSubmit(form)" class="form-body">
+                    <input name="UserName" #UserName="ngModel" [(ngModel)]="login_formModel.UserName" type="text" class="form-body__input" placeholder="Email/Số điện thoại/Tên đăng nhập" required>
+                    <input name="Password" #Password="ngModel" [(ngModel)]="login_formModel.Password" type="password" class="form-body__input" placeholder="Mật khẩu" required>
+                    <button [disabled]="form.invalid" class="btn btn--primary btn-mobile">Đăng nhập</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</div>

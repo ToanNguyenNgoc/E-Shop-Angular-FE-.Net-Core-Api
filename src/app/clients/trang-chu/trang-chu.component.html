@@ -1,0 +1,131 @@
+
+<div class="app">
+    <div class="container">
+        <div class="grid">
+            <div class="grid__row">
+                <div id="grid__column-2_mobile" class="grid__column-2">
+                    <nav class="category">
+                        <div class="category__heading">
+                            <i class="fas fa-list-ul"></i>
+                            Danh mục
+                        </div>
+                        <ul class="category-list">
+                            <li class="category-item">
+                                <a href="#" class="category-item__link">Màn hình</a>
+                            </li>
+                            <li class="category-item">
+                                <a href="#" class="category-item__link">Bàn phím</a>
+                            </li>
+                            <li class="category-item">
+                                <a href="#" class="category-item__link">Chuột</a>
+                            </li>
+                            <li class="category-item">
+                                <a href="#" class="category-item__link">Sạc không dây</a>
+                            </li>
+                            <li class="category-item">
+                                <a href="#" class="category-item__link">Sạc không dây</a>
+                            </li>
+                            <li class="category-item">
+                                <a href="#" class="category-item__link">Sạc không dây</a>
+                            </li>
+                        </ul>
+                        <div class="category-close" onclick="closeMenu()">  
+                            <span>Đóng</span>
+                        </div>
+                    </nav>
+                </div>
+                <div class="grid__column-10">
+                    <div class="home__filter">
+                        <div class="home__filter-select">
+                            <span class="home__filter-title">Sắp xếp theo</span>
+                            <button class="btn btn-filter">Phổ biến</button>
+                            <button class="btn btn--primary btn-filter">Mới nhất</button>
+                            <button class="btn btn-filter">Bán chạy</button>
+                            <div class="home__filter-sort">
+                                <span class="home__filter-sort-name">Giá</span>
+                                <i class="icon-sort fas fa-chevron-down"></i>
+                                <div class="filter-sort">
+                                    <ul class="filter-sort-list">
+                                        <li class="filter-sort-item">
+                                            <a href="#" class="item-select">Giá: Thấp đến Cao</a>
+                                        </li>
+                                        <li class="filter-sort-item">
+                                            <a href="#" class="item-select">Giá: Cao đến Thấp</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="home__product">
+                        <div class="grid__row">
+                            <!-- product item -->                          
+                                <div class="grid__column-2-4" *ngFor="let data of service.list_product | slice: (page-1) * pageSize : page * pageSize">
+                                    <a [routerLink]="['chi-tiet-san-pham/' + data.id]" RouterLinkActive="router-link-active" style="text-decoration: none; color: black;">
+                                        <div class="home__product-item">
+                                            <img class="home__product-item__img" *ngIf="data?.image" src="{{data?.image}}" alt="">
+                                            <h4 class="home__product-item__name">{{data.productName}}</h4>
+                                            <div class="home__product-item__sale">
+                                                <div class="home__product-item__sale-off">
+                                                    <span class="home__product-item__sale-off-title">Giảm đ1K</span>
+                                                </div>
+                                                <div class="home__product-item__sale-buy">
+                                                    <span class="home__product-item__sale-buy-title">Mua để nhận quà</span>
+                                                </div>
+                                            </div>
+                                            <div class="home__product-item__price">
+                                                <span class="home__product-item__price-old">{{data.price|currency:"VND":"symbol"}}đ</span>
+                                                <span class="home__product-item__price-current">{{data.discount|currency:"VND":"symbol"}}đ <i class="icon-ship fas fa-truck"></i></span>
+                                            </div>
+                                            <div class="home__product-item__action">
+                                                <span class="home__product-item__action-like">
+                                                    <i class="fas fa-heart"></i>
+                                                </span>
+                                                <div class="home__product-item__action-stars">
+                                                    <span class="home__product-item__action-star">
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                    </span>
+                                                     <span class="home__product-item__action-bought">Đã bán 6,1k</span>
+                                                </div>
+                                            </div>
+                                            <div class="home__product-item__local">
+                                                <span class="home__product-item__local-name">Hà Nội</span>
+                                            </div>
+                                            <div class="home__product-item__favorite">
+                                                <i class="icon-check fas fa-check"></i>
+                                                <span class="home__product-item__favorite-title">
+                                                    Yêu thích
+                                                </span>
+                                            </div>
+                                            <div class="home__product-item__similar">
+                                                <a href="#" class="home__product-item__similar-title">Tìm sản phẩm tương tự</a>
+                                            </div>
+                                        </div>  
+                                    </a>
+                                </div>                           
+                            <!-- product item -->
+                            
+                        </div>
+                        <div class="home__product-page-responsive">
+                            <div class="home__product-page-controller">
+                                <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="service.list_product.length"></ngb-pagination>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="home__product-page">
+        <div class="home__product-page-controller">
+            <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="service.list_product.length"></ngb-pagination>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</div>
+
+<router-outlet></router-outlet>
