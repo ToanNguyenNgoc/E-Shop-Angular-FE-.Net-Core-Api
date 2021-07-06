@@ -37,33 +37,39 @@ export class ChiTietComponent implements OnInit {
   }
   //handler buy now
   buyNow(category: any){
-    let cartDataNull= localStorage.getItem('localCart');
-    if(cartDataNull==null){
-      let storeDataGet: any=[];
-      storeDataGet.push(category);
-      localStorage.setItem('localCart', JSON.stringify(storeDataGet));
-    }else{
-      var idItem= category.id;
-      let index: number= -1;
-      let cartData: string =`${localStorage.getItem('localCart')}`;
-      this.itemsCart= JSON.parse(cartData);
-      for(let i=0; i< this.itemsCart.lenght; i++){
-        if(parseInt(idItem)===parseInt(this.itemsCart[i].id)){
-          this.itemsCart[i].quantity= category.quantity;
-          index=i;
-          break;
+    if (localStorage.getItem('token') != null) {
+      let cartDataNull = localStorage.getItem('localCart');
+      if (cartDataNull == null) {
+        let storeDataGet: any = [];
+        storeDataGet.push(category);
+        localStorage.setItem('localCart', JSON.stringify(storeDataGet));
+      } else {
+        var idItem = category.id;
+        let index: number = -1;
+        let cartData: string = `${localStorage.getItem('localCart')}`;
+        this.itemsCart = JSON.parse(cartData);
+        for (let i = 0; i < this.itemsCart.lenght; i++) {
+          if (parseInt(idItem) === parseInt(this.itemsCart[i].id)) {
+            this.itemsCart[i].quantity = category.quantity;
+            index = i;
+            break;
+          }
+        }
+        if (index == -1) {
+          this.itemsCart.push(category);
+          localStorage.setItem('localCart', JSON.stringify(this.itemsCart));
+        } else {
+          localStorage.setItem('localCart', JSON.stringify(this.itemsCart));
         }
       }
-      if(index==-1){
-        this.itemsCart.push(category);
-        localStorage.setItem('localCart', JSON.stringify(this.itemsCart));
-      }else{
-        localStorage.setItem('localCart', JSON.stringify(this.itemsCart));
-      }
+      this._route.navigateByUrl('client/gio-hang');
+      this.cartNumberFunc();
+      this.loadCartBox();
+      return true;
+    }else{
+      this._route.navigateByUrl('/dang-nhap');
+      return false;
     }
-    this._route.navigateByUrl('client/gio-hang');
-    this.cartNumberFunc();
-    this.loadCartBox();
   }
   //handler add to cart
   itemsCart: any=[];

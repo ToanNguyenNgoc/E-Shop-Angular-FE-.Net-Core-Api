@@ -1,0 +1,45 @@
+<a [routerLink]="['/client/chi-tiet-san-pham/' + productItem.id]" RouterLinkActive="router-link-active" style="text-decoration: none; color: black;">
+      <div class="home__product-item">
+          <img class="home__product-item__img" *ngIf="productItem?.image" src="{{productItem?.image}}" alt="">
+          <h4 class="home__product-item__name">{{productItem.productName}}</h4>
+          <div class="home__product-item__sale">
+              <div class="home__product-item__sale-off">
+                  <span class="home__product-item__sale-off-title">Giảm đ1K</span>
+              </div>
+              <div class="home__product-item__sale-buy">
+                  <span class="home__product-item__sale-buy-title">Mua để nhận quà</span>
+              </div>
+          </div>
+          <div class="home__product-item__price">
+              <span class="home__product-item__price-old">{{productItem.price|currency:"VND":"symbol"}}đ</span>
+              <span class="home__product-item__price-current">{{productItem.discount|currency:"VND":"symbol"}}đ <i class="icon-ship fas fa-truck"></i></span>
+          </div>
+          <div class="home__product-item__action">
+              <span class="home__product-item__action-like">
+                  <i class="fas fa-heart"></i>
+              </span>
+              <div class="home__product-item__action-stars">
+                  <span class="home__product-item__action-star">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                  </span>
+                   <span class="home__product-item__action-bought">Đã bán 6,1k</span>
+              </div>
+          </div>
+          <div class="home__product-item__local">
+              <span class="home__product-item__local-name">Hà Nội</span>
+          </div>
+          <div class="home__product-item__favorite">
+              <i class="icon-check fas fa-check"></i>
+              <span class="home__product-item__favorite-title">
+                  Yêu thích
+              </span>
+          </div>
+          <div class="home__product-item__similar">
+              <a [routerLink]="['/client']" routerLinkActive="router-link-active" class="home__product-item__similar-title">Tìm sản phẩm tương tự</a>
+          </div>
+      </div>  
+  </a>

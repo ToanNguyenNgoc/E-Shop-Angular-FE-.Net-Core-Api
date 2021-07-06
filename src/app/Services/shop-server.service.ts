@@ -19,6 +19,8 @@ export class ShopServerService {
   list_product: ProductDetail[]=[];
   public formData_Product: ProductDetail= new ProductDetail();
   
+  //Login with Gg Fb
+  
   //get list product
   getList_product(){
     this.http.get(this.rootURL+'/ProductDetails')

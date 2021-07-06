@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+
 import { ToastrService } from 'ngx-toastr';
 import { ShopServerService } from 'src/app/Services/shop-server.service';
 
@@ -18,6 +19,7 @@ export class DangNhapComponent implements OnInit {
   }
   
   constructor(
+ 
     public service: ShopServerService,
     public toastr: ToastrService,
     public route: Router
@@ -41,5 +43,6 @@ export class DangNhapComponent implements OnInit {
     }
     );
   }
+  
 
 }

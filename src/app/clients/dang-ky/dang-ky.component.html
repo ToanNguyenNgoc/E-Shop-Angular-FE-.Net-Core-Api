@@ -6,9 +6,9 @@
                     <i class="fas fa-arrow-left"></i>
                 </a>
                 <img src="../../../assets/img/Shopee-logo-512x512.png" alt="" class="sign-in__nav-logo">
-                <span>Đăng ký</span>
+                <a [routerLink]="['/client']" routerLinkActive="router-link-active" ><span>Trang chủ</span></a>
             </div>
-            <a href="#" class="sign-in__nav-right">Cần trợ giúp?</a>
+            <a class="sign-in__nav-right">Cần trợ giúp?</a>
         </div>
     </div>
     <div class="sign-in__body">
@@ -17,12 +17,31 @@
                 <h1 class="sign-form__heading">
                     Đăng ký
                 </h1>
-                <form action="" class="form-body">
-                    <input type="text" class="form-body__input" placeholder="Số điện thoại/Tên đăng nhập" required />
-                    <input type="password" class="form-body__input" placeholder="Mật khẩu" required />
-                    <input type="text" class="form-body__input" placeholder="Email" required />
+                <form action="" autocomplete="off" class="form-body" method="POST" [formGroup]="service.user_formModel" (submit)="onSubmit()">
+                    <input type="text" class="form-body__input" placeholder="Số điện thoại/Tên đăng nhập" 
+                        formControlName="UserName"
+                        required />
+
+                    <input type="password" class="form-body__input" placeholder="Mật khẩu" 
+                        formControlName="Password"
+                        required />
+                    <div *ngIf="service.user_formModel.get('Password')?.touched && service.user_formModel.get('Password')?.invalid">
+                        <div *ngIf="service.user_formModel.get('Password')?.errors?.required">Password is required</div>
+                    </div>
+
+                    <input type="password" class="form-body__input" placeholder="Nhập lại mật khẩu" formControlName="Confirm_Password"
+                        required />
+                    <div *ngIf="service.user_formModel.get('Confirm_Password')?.touched && service.user_formModel.get('Confirm_Password')?.invalid">
+                        <div *ngIf="service.user_formModel.get('Confirm_Password')?.errors?.confirmedValidator">Confirm
+                            password is not match
+                        </div>
+                    </div>
+
+                    <input type="text" class="form-body__input" placeholder="Email" 
+                        formControlName="Email"
+                        required />
                     <input type="text" class="form-body__input" placeholder="Họ và tên" required />
-                    <button class="btn btn--primary btn-mobile">Đăng ký</button>
+                    <button type="submit" class="btn btn--primary btn-mobile">Đăng ký</button>
                 </form>
             </div>
         </div>

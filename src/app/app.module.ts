@@ -39,6 +39,7 @@ import { AddCartSuccessComponent } from './clients/gio-hang/add-cart-success/add
 import { NotFoundComponent } from './Shared/not-found/not-found.component';
 import { FooterComponent } from './clients/footer/footer.component';
 import { HeaderComponent } from './clients/header/header.component';
+import { SanPhamComponent } from './clients/san-pham/san-pham.component';
 
 
 
@@ -63,6 +64,7 @@ import { HeaderComponent } from './clients/header/header.component';
     NotFoundComponent,
     FooterComponent,
     HeaderComponent,
+    SanPhamComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,9 +82,9 @@ import { HeaderComponent } from './clients/header/header.component';
       progressBar: true
     }),
     MatIconModule,
-    MatSidenavModule
+    MatSidenavModule,
   ],
-  providers: [],
+  providers:[],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
