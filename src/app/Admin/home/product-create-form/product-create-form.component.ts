@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 import { ProductDetail } from 'src/app/Models/products-detail.model';
+import { ImageFirebaseCommonService } from 'src/app/Services/image-firebase-common.service';
 import { ShopServerService } from 'src/app/Services/shop-server.service';
 
 @Component({
@@ -13,11 +14,18 @@ import { ShopServerService } from 'src/app/Services/shop-server.service';
 @ViewChild('textbox')  //access this variable <textarea>
 export class ProductCreateFormComponent implements OnInit {
 
+  imageLink: string ='';
   constructor(
     public service: ShopServerService,
     public dialog: MatDialog,
-    public toastr: ToastrService
-  ) { }
+    public toastr: ToastrService,
+    public imageLinkCommon: ImageFirebaseCommonService
+  ) { 
+    imageLinkCommon.imageLinkShareParent.subscribe((res)=>{
+      console.log(res)
+      this.imageLink = res;
+    })
+  }
 
   ngOnInit(): void {
   }

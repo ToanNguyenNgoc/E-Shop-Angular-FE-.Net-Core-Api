@@ -1,0 +1,19 @@
+<p>thanh-toan works!</p>
+<p>{{displayPrice}}</p>
+<p>{{displayQuantity}}</p>
+<table>
+      <thead>
+            <tr>
+               <th>Ten</th>
+               <th>Don gia</th>
+               <th>So luong</th>
+               <th>Tong</th> 
+            </tr>
+            <tr *ngFor="let item of lisProduct">
+                  <td>{{item.productName}}</td>
+                  <td>{{item.discount}}</td>
+                  <td>{{item.quantity}}</td>
+                  <td>{{item.discount * item.quantity}}</td>
+            </tr>
+      </thead>
+</table>

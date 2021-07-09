@@ -11,23 +11,17 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { HomeComponent } from './Admin/home/home.component';
 import { ProductsComponent } from './Admin/home/products/products.component';
 import { RegistrationComponent } from './Admin/home/registration/registration.component';
-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTableModule} from '@angular/material/table';
 import {MatTabsModule} from '@angular/material/tabs';
 import { ProductViewDetailComponent } from './Admin/home/product-view-detail/product-view-detail.component';
-
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatIconModule} from '@angular/material/icon';
-
 import { ProductCreateFormComponent } from './Admin/home/product-create-form/product-create-form.component';
 import { UserLoginComponent } from './Admin/user-login/user-login.component';
 import { TestSidenavComponent } from './Admin/test-sidenav/test-sidenav.component';
-
 import { ClientsComponent } from './clients/clients.component';
 import { TrangChuComponent } from './clients/trang-chu/trang-chu.component';
 import { ChiTietComponent } from './clients/chi-tiet/chi-tiet.component';
@@ -40,6 +34,12 @@ import { NotFoundComponent } from './Shared/not-found/not-found.component';
 import { FooterComponent } from './clients/footer/footer.component';
 import { HeaderComponent } from './clients/header/header.component';
 import { SanPhamComponent } from './clients/san-pham/san-pham.component';
+import { ImageUploadFirebaseComponent } from './Admin/home/product-create-form/image-upload-firebase/image-upload-firebase.component';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireStorageModule } from '@angular/fire/storage'
+import { AngularFireDatabaseModule } from '@angular/fire/database'
+import { environment } from 'src/environments/environment';
+import { ThanhToanComponent } from './clients/thanh-toan/thanh-toan.component';
 
 
 
@@ -65,6 +65,8 @@ import { SanPhamComponent } from './clients/san-pham/san-pham.component';
     FooterComponent,
     HeaderComponent,
     SanPhamComponent,
+    ImageUploadFirebaseComponent,
+    ThanhToanComponent,
   ],
   imports: [
     BrowserModule,
@@ -83,6 +85,9 @@ import { SanPhamComponent } from './clients/san-pham/san-pham.component';
     }),
     MatIconModule,
     MatSidenavModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule,
+    AngularFireDatabaseModule
   ],
   providers:[],
   bootstrap: [AppComponent]

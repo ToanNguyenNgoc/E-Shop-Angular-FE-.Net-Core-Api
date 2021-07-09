@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CartCommonService } from 'src/app/Services/cart-common.service';
+import { PaymentCommonService } from 'src/app/Services/payment-common.service';
 
 @Component({
   selector: 'app-gio-hang',
@@ -13,12 +15,16 @@ export class GioHangComponent implements OnInit {
   tottalProduct:number=0;
 
   constructor(
-    public cartCommon: CartCommonService
+    public cartCommon: CartCommonService,
+    public route: Router,
+    //public productPaymentCommon: PaymentCommonService
+    public dataPayment: PaymentCommonService
   ) { }
 
   ngOnInit(): void {
     this.getCartList();
     this.loadCart();
+    this.pushPaymentDetail();
   }
   //get list product in cart
   getCartList(){
@@ -82,6 +88,16 @@ export class GioHangComponent implements OnInit {
      this.cartItem= cartCount.length;
      this.cartCommon.cartSubject.next(this.cartItem);
     }
+  }
+  //Pay now
+  payNow(){
+    console.log(this.totalPrice);
+    console.log(this.tottalProduct);
+    this.route.navigateByUrl('/payment');
+  }
+  pushPaymentDetail(){
+    this.dataPayment.totalPrice.next(this.totalPrice);
+    this.dataPayment.totalQuantity.next(this.tottalProduct);
   }
   
 

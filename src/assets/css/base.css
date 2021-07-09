@@ -90,6 +90,9 @@ html{
 .btn.btn--primary:hover{
     background-color: var(--color-hover-primary);
 }
+.mat-dialog-container{
+    padding: 10px !important;
+}
 /* Animation */
 @keyframes fadeIn{
     from{

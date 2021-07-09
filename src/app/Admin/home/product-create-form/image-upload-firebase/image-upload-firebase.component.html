@@ -1,0 +1,18 @@
+
+<form class="form-image" [formGroup]="formTemplate" (submit)="onSubmit(formTemplate.value)">
+      <div>
+            <img [src]="imageSrc" width="130x" height="150px" alt="" (click)="fileUploader.click()">
+      </div>
+      <div class="img-select">
+            <div>
+                  <label>Select file to upload</label>
+                  <input class="btn btn-primary" accept="image/*" type="file" formControlName="imageUrl" #fileUploader (change)="showPreview($event)">
+            </div>
+            <div>
+                  <input class="input-caption" type="text" formControlName="caption" matInput placeholder="Caption..." />
+            </div>
+            <div>
+                  <button class="btn btn-primary" type="submit">Upload Image</button>
+            </div>
+      </div>
+</form>

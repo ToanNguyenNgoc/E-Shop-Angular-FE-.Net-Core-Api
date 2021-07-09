@@ -1,62 +1,48 @@
 
-<button class="btn_close" (click)="close()">Đóng</button>
 <div class="body">
     <form class="my-form" autocomplete="off" #form="ngForm" (submit)="onSubmit(form)">
         <div class="container">
             <ul>
                 <li>
-                    <div class="grid-2">
-                        <input 
-                            type="text"
-                            name="code" #code="ngModel" [(ngModel)]="service.formData_Product.code" 
-                            placeholder="Mã sản phẩm..." 
-                            required>
-                    </div>
-                </li>
-                <li>
-                    <div class="grid-2">
-                        <input 
-                            type="text" 
-                            name="productName" #productName="ngModel" [(ngModel)]="service.formData_Product.productName"
-                            placeholder="Tên sản phẩm..." 
-                            required>
+                    <div class="grid grid-2">
+                        <input type="text" name="code" #code="ngModel" [(ngModel)]="service.formData_Product.code"
+                            placeholder="Mã sản phẩm..." required>
+                        <input type="text" name="productName" #productName="ngModel" [(ngModel)]="service.formData_Product.productName"
+                            placeholder="Tên sản phẩm..." required>
                     </div>
                 </li>
                 <li>
                     <div class="grid grid-2">
-                        <input 
-                            type="text" 
-                            name="price" #price="ngModel" [(ngModel)]="service.formData_Product.price"
-                            placeholder="Giá gốc..." 
-                            required>
-                        <input 
-                            type="text" 
-                            name="discount" #discount="ngModel" [(ngModel)]="service.formData_Product.discount"
-                            placeholder="Giảm giá..." 
-                            required>
+                        <input type="text" name="price" #price="ngModel" [(ngModel)]="service.formData_Product.price"
+                            placeholder="Giá gốc..." required>
+                        <input type="text" name="discount" #discount="ngModel" [(ngModel)]="service.formData_Product.discount"
+                            placeholder="Giảm giá..." required>
+                        
                     </div>
                 </li>
                 <li>
+                    <div class="grid-2">
+                        <input type="number" name="quantity" #quantity="ngModel" [(ngModel)]="service.formData_Product.quantity"
+                            placeholder="Số lượng,..." required>
+                    </div>
+                </li>
+                <li>
+                    <span>{{imageLink}}</span>
+                </li>
+                <li>
                     <div class="grid grid-2">
-                        <input 
-                            type="number" 
-                            name="quantity" #quantity="ngModel" [(ngModel)]="service.formData_Product.quantity"
-                            placeholder="Số lượng,..." 
-                            required>
-                        <input 
-                            type="text" 
-                            name="image" #image="ngModel" [(ngModel)]="service.formData_Product.image"
-                            placeholder="Đường dẫn hình ảnh..." 
-                            required>
+                        <app-image-upload-firebase></app-image-upload-firebase>
+                        <input type="text" name="image" #image="ngModel" [(ngModel)]="service.formData_Product.image"
+                            placeholder="Image link..." required>
                     </div>
                 </li>
                 <li>
                    <textarea 
                     name="description" #description="ngModel" [(ngModel)]="service.formData_Product.description"
-                    cols="30" rows="10"></textarea>
+                    cols="10" rows="5"></textarea>
                 </li>
                 <li>
-                    <div class="grid-3">
+                    <div class="grid-2">
                         <button class="btn-grid" type="submit" [disabled]="form.invalid"
                             style="margin-bottom: 10px;
                                     background-color: green;
@@ -68,6 +54,12 @@
                                     background-color: rgb(187, 187, 187);
                                     ">
                             <span class="front">Reset</span>
+                        </button>
+                        <button (click)="close()" class="btn-grid" type="reset"
+                            style="margin-bottom: 10px;
+                                    background-color: rgb(187, 187, 187);
+                                    ">
+                            <span class="front">Đóng</span>
                         </button>
                     </div>
                 </li>

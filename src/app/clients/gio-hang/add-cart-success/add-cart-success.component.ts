@@ -13,8 +13,14 @@ export class AddCartSuccessComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    setTimeout(() => {
+      this.closeMessage();
+    }, 2000);
   }
   close(){
+    this.dialog.closeAll();
+  }
+  closeMessage(){
     this.dialog.closeAll();
   }
 

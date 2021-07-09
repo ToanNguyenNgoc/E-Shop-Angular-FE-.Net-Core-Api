@@ -223,7 +223,7 @@ input{
 .btn_close{
   float: right;
   margin-right: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   width: 20%;
   font-size: 20px;
   padding: 8px 0px;
@@ -234,6 +234,10 @@ input{
 }
 .btn_close:hover{
   background-color: rgb(226, 121, 121);
+}
+.grid-2{
+  display: flex;
+  flex-direction: row;
 }
 @media screen and (min-width: 600px) {
   .container{
