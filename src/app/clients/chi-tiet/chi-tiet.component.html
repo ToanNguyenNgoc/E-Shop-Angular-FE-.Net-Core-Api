@@ -6,13 +6,6 @@
                 <div class="grid__column-4">
                     <div class="product__image">
                         <img *ngIf="data?.image" src="{{data?.image}}" alt="" class="product__image-avatar">
-                        <div class="product__image-more">
-                            <img *ngIf="data?.image" src="{{data?.image}}" alt="" class="product__image-more-single">
-                            <img *ngIf="data?.image" src="{{data?.image}}" alt="" class="product__image-more-single">
-                            <img *ngIf="data?.image" src="{{data?.image}}" alt="" class="product__image-more-single">
-                            <img *ngIf="data?.image" src="{{data?.image}}" alt="" class="product__image-more-single">
-                            <img *ngIf="data?.image" src="{{data?.image}}" alt="" class="product__image-more-single">
-                        </div>
                         <div class="product__image-action">
                             <div class="product__image-action-share">
                                 <span class="share-title">Chia sẻ:</span>
@@ -222,16 +215,6 @@
                                 <span class="details-title__text">Chọn Loại</span>
                             </div>
                             <div class="product__details-classify__desc" id="product-classify">
-                                <div class="product__details-classify__desc-items">
-                                    <button class="btn-classify">ĐEN BẠC</button>
-                                    <button class="btn-classify">TRẮNG BẠC</button>
-                                    <button class="btn-classify">ĐEN BẠC + TẤM LÓT</button>
-                                    <button class="btn-classify">TRẮNG BẠC + TẤM LÓT</button>
-                                    <button class="btn-classify">BLACK STAR</button>
-                                    <button class="btn-classify">BLACK STAR + TẤM LÓT</button>
-                                    <button class="btn-classify">MÀU XÁM</button>
-                                    <button class="btn-classify">MÀU XÁM</button>
-                                </div>
                                 <div class="product__control">
                                     <button (click)="addToCart(data)" class="btn__details-control btn-addCart">
                                         <i class="fas fa-cart-plus addCart-icon"></i>Thêm Vào Giỏ Hàng
@@ -323,7 +306,7 @@
                         *ngFor="let data of service.list_product | slice: (page-1) * pageSize : page * pageSize"
                     >
                         <li class="product__recommend-list">
-                            <a [routerLink]="['/home/chi-tiet-san-pham/' + data.id]" class="product__recommend-link">
+                            <a [routerLink]="['/client/chi-tiet-san-pham/' + data.id]" class="product__recommend-link">
                                 <img class="product__recommend-link__image"
                                     *ngIf="data?.image" src="{{data?.image}}"
                                 alt="">

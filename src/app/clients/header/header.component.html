@@ -116,35 +116,8 @@
                               <a class="header__logo-icon-link" [routerLink]="['/client']"><i class="fab fa-cc-amex"></i></a>
                               <a [routerLink]="['/client']" RouterLinkActive="router-link-active" class="header__logo-icon-back"><i class="fas fa-arrow-left"></i></a>
                           </div>
-  
                       </div>
-                      <div class="header__search">
-                          <div class="header__search-input">
-                              <input type="text" class="header__search-text"
-                                  
-                                  placeholder="Tìm sản phẩm,...">
-                              <div class="header__search-history">
-                                  <h3 class="header__search-history-heading">
-                                      Lịch sử tìm kiếm
-                                  </h3>
-                                  <ul class="header__search-history-list">
-                                      <li class="header__search-history-item">
-                                          <a class="header__search-history-link" href="">Tai nghe không dây</a>
-                                      </li>
-                                      <li class="header__search-history-item">
-                                          <a class="header__search-history-link" href="">Quạt tản nhiệt</a>
-                                      </li>
-                                  </ul>
-                              </div>
-                          </div>
-                          <div class="header__search-btn-items">
-                              <button class="header__search-btn">
-                                  <div class="header__search-btn-icon">
-                                      <i class="fas fa-search"></i>
-                                  </div>
-                              </button>
-                          </div>
-                      </div>
+                      <app-tim-kiem></app-tim-kiem>
                       <div class="header__cart">
                           <a href="#" class="header__cart-link header__cart-link-icon">
                               <i class="fas fa-shopping-cart"></i>

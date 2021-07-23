@@ -8,7 +8,8 @@
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
-        },
+        }
+        ,
         "@schematics/angular:application": {
           "strict": true
         }
@@ -29,13 +30,22 @@
             "assets": [
               "src/favicon.ico",
               "src/assets"
+              
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss",
-              "node_modules/ngx-toastr/toastr.css"
+              "node_modules/ngx-toastr/toastr.css",
+              "src/assets/css/base.css",
+              "src/assets/css/style.css",
+              "src/assets/css/product_style.css",
+              "src/assets/css/cart.css",
+              "src/assets/css/sign-in.css",
+              "src/assets/css/error.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/main.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -98,6 +108,7 @@
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
+              
             ],
             "scripts": []
           }

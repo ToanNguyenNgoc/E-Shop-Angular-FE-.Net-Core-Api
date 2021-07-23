@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
+import { map, switchMap } from 'rxjs/operators';
 import { CartCommonService } from 'src/app/Services/cart-common.service';
 import { ShopServerService } from 'src/app/Services/shop-server.service';
 import { AddCartSuccessComponent } from '../gio-hang/add-cart-success/add-cart-success.component';
@@ -18,14 +19,13 @@ export class ChiTietComponent implements OnInit {
   cartList:any=[];
   constructor(
     public service: ShopServerService,
-    public route: ActivatedRoute,
-    public _route: Router,
-    public cartCommon: CartCommonService,
-    public dialog: MatDialog
+    private route: ActivatedRoute,
+    private _route: Router,
+    private cartCommon: CartCommonService,
+    private dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
-    console.log(this.route.snapshot.params['id']);
     this.get_one_product();
     this.service.getList_product();
   }

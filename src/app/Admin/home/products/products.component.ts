@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ProductDetail } from 'src/app/Models/products-detail.model';
 import { ShopServerService } from 'src/app/Services/shop-server.service';
+//import { threadId } from 'worker_threads';
 import { ProductCreateFormComponent } from '../product-create-form/product-create-form.component';
 
 @Component({
@@ -13,7 +14,7 @@ export class ProductsComponent implements OnInit {
   public page=1;
   public pageSize=5;
 
-  listProductDetails: ProductDetail[]=[];
+  listProductDetails:ProductDetail[]=[];
 
   constructor(
     public service: ShopServerService,
@@ -22,7 +23,7 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getList_product();
-  }
+    }
   //filter
   // public orderBy(key: any, dir: any){
   //   this.listProductDetails= _.orderBy()
@@ -49,8 +50,6 @@ export class ProductsComponent implements OnInit {
     if (confirm('Bạn có muốn xóa mặt hàng không ?')) {
       this.onDelete(id);
     } else {
-      // // Do nothing!
-      // console.log('Thing was not saved to the database.');
     }
   }
 

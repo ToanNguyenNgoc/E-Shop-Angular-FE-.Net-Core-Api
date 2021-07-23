@@ -267,6 +267,10 @@
     color: var(--white-color);
     text-decoration: none;
 }
+.header__logo-icon-link:hover{
+    color: var(--white-color);
+    text-decoration: none;
+}
 /* mobile */
 .header__logo-icon-back{
     display: none;

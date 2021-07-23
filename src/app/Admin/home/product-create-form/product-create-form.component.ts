@@ -14,6 +14,7 @@ import { ShopServerService } from 'src/app/Services/shop-server.service';
 @ViewChild('textbox')  //access this variable <textarea>
 export class ProductCreateFormComponent implements OnInit {
 
+  listProduct: ProductDetail[]=[];
   imageLink: string ='';
   constructor(
     public service: ShopServerService,
@@ -28,6 +29,7 @@ export class ProductCreateFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    
   }
   insertRecord(form: NgForm){
     this.service.create_product_detail().subscribe(res=>{
@@ -44,6 +46,7 @@ export class ProductCreateFormComponent implements OnInit {
     });
   }
   onSubmit(form : NgForm){
+    
     if(this.service.formData_Product.id==0){
       this.insertRecord(form);
       this.resetForm(form);

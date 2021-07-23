@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { dispatch } from 'rxjs/internal/observable/pairs';
 import { ShopServerService } from 'src/app/Services/shop-server.service';
 
 @Component({
@@ -28,4 +29,5 @@ export class HomeComponent implements OnInit {
     localStorage.removeItem('token');
     this.route.navigate(['/admin-login'])
   }
+  
 }
