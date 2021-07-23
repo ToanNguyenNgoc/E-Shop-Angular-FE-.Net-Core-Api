@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { finalize } from 'rxjs/operators'
 import { ImageFirebaseCommonService } from 'src/app/Services/image-firebase-common.service';
 
@@ -17,8 +18,9 @@ export class ImageUploadFirebaseComponent implements OnInit {
   imgLink: string ='';
   constructor(
     public storage: AngularFireStorage,
-    public imageLinkCommon: ImageFirebaseCommonService
-
+    public imageLinkCommon: ImageFirebaseCommonService,
+    public toatrs: ToastrService
+    
   ) { }
   formTemplate= new FormGroup({
     caption: new FormControl('', Validators.required),
@@ -54,7 +56,9 @@ export class ImageUploadFirebaseComponent implements OnInit {
           })
         })
       ).subscribe();
-
+        this.toatrs.success('Upload Image to Firebase Success !')
+    }else{
+      this.toatrs.error('Upload Image to Firebase Fail !')
     }
   }
 

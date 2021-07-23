@@ -38,19 +38,16 @@
                     <div class="home__filter">
                         <div class="home__filter-select">
                             <span class="home__filter-title">Sắp xếp theo</span>
-                            <button class="btn btn-filter">Phổ biến</button>
-                            <button class="btn btn--primary btn-filter">Mới nhất</button>
-                            <button class="btn btn-filter">Bán chạy</button>
                             <div class="home__filter-sort">
                                 <span class="home__filter-sort-name">Giá</span>
                                 <i class="icon-sort fas fa-chevron-down"></i>
                                 <div class="filter-sort">
                                     <ul class="filter-sort-list">
                                         <li class="filter-sort-item">
-                                            <a href="#" class="item-select">Giá: Thấp đến Cao</a>
+                                            <button (click)="sortProductByPrice('up')" class="btn-sort">Giá: Thấp đến Cao</button>
                                         </li>
                                         <li class="filter-sort-item">
-                                            <a href="#" class="item-select">Giá: Cao đến Thấp</a>
+                                            <button (click)="sortProductByPrice('down')" class="btn-sort">Giá: Cao đến Thấp</button>
                                         </li>
                                     </ul>
                                 </div>
@@ -60,7 +57,7 @@
                     <div class="home__product">
                         <div class="grid__row">
                             <!-- product item -->                          
-                                <div class="grid__column-2-4" *ngFor="let data of service.list_product | slice: (page-1) * pageSize : page * pageSize">
+                                <div class="grid__column-2-4" *ngFor="let data of Products | slice: (page-1) * pageSize : page * pageSize">
                                    <app-san-pham [productItem]="data"></app-san-pham>
                                 </div>                           
                             <!-- product item -->
@@ -68,7 +65,7 @@
                         </div>
                         <div class="home__product-page-responsive">
                             <div class="home__product-page-controller">
-                                <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="service.list_product.length"></ngb-pagination>
+                                <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="Products.length"></ngb-pagination>
                             </div>
                         </div>
                     </div>

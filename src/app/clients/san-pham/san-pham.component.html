@@ -1,6 +1,6 @@
 <a [routerLink]="['/client/chi-tiet-san-pham/' + productItem.id]" RouterLinkActive="router-link-active" style="text-decoration: none; color: black;">
       <div class="home__product-item">
-          <img class="home__product-item__img" *ngIf="productItem?.image" src="{{productItem?.image}}" alt="">
+          <img class="home__product-item__img" src="{{productItem.image}}" alt="">
           <h4 class="home__product-item__name">{{productItem.productName}}</h4>
           <div class="home__product-item__sale">
               <div class="home__product-item__sale-off">

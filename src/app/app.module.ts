@@ -40,7 +40,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage'
 import { AngularFireDatabaseModule } from '@angular/fire/database'
 import { environment } from 'src/environments/environment';
 import { ThanhToanComponent } from './clients/thanh-toan/thanh-toan.component';
-
+import { TimKiemComponent } from './clients/tim-kiem/tim-kiem.component'
 
 
 @NgModule({
@@ -67,6 +67,7 @@ import { ThanhToanComponent } from './clients/thanh-toan/thanh-toan.component';
     SanPhamComponent,
     ImageUploadFirebaseComponent,
     ThanhToanComponent,
+    TimKiemComponent
   ],
   imports: [
     BrowserModule,

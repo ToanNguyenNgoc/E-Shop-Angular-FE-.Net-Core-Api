@@ -35,6 +35,8 @@ const routes: Routes = [
   {path:'client', component: ClientsComponent, children:[
     
   ]},
+  {path:'', redirectTo:'client', pathMatch:'full'},
+  {path:'tim-kiem/:searchTerm', component: ClientsComponent},
   {path:'client/chi-tiet-san-pham/:id', component:ChiTietComponent},
   {path:'client/gio-hang', component: GioHangComponent},
   {path:'dang-nhap', component: DangNhapComponent},
@@ -43,6 +45,7 @@ const routes: Routes = [
 
   //Not found
   {path:'not-found', component: NotFoundComponent},
+  {path:'**', component: NotFoundComponent},
 ];
 
 @NgModule({

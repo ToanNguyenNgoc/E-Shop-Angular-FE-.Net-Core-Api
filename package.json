@@ -24,6 +24,7 @@
     "@angular/platform-browser-dynamic": "~11.2.1",
     "@angular/router": "~11.2.1",
     "@ng-bootstrap/ng-bootstrap": "^9.1.0",
+    "@types/lodash": "^4.14.171",
     "angularx-social-login": "^4.0.1",
     "boostrap": "^2.0.0",
     "bootstrap": "^5.0.0",
